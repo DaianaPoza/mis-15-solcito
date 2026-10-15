@@ -1,0 +1,34 @@
+/* ===== PLAYLIST ===== */
+.playlist {
+  gap: 1.25rem;
+}
+
+/* Ícono de Spotify en champagne, como el resto de los íconos */
+.playlist__icono {
+  width: 46px;
+  height: 46px;
+  color: var(--champagne);
+  margin-top: 0.5rem;
+}
+
+/* Pregunta destacada: mismo estilo que "Predio S.O.E.A" y "Elegante formal" */
+.playlist__pregunta {
+  font-family: var(--fuente-titulo);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 6.5vw, 2.1rem);
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+  color: var(--texto);
+  max-width: 18ch;
+}
+
+.playlist .boton {
+  margin-top: 0.75rem;
+}
+
+/* Botón desactivado mientras no esté el link */
+.playlist__boton--pronto {
+  opacity: 0.55;
+  cursor: default;
+  pointer-events: none;
+}

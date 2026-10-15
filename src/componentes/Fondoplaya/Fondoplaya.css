@@ -1,0 +1,50 @@
+/* ===== FONDO DE PLAYA POR TRAMOS ===== */
+.fondo-playa {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: var(--marfil);
+}
+
+/* Las tres imágenes están apiladas; solo la activa se ve */
+.fondo-playa__capa {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+.fondo-playa__capa--activa { opacity: 1; }
+
+/* Celular */
+.fondo-playa__capa--1 { background-image: url('../../assets/fondo-vertical.webp'); background-position: center top; }
+.fondo-playa__capa--2 { background-image: url('../../assets/fondo-arena-vertical.webp'); }
+.fondo-playa__capa--3 { background-image: url('../../assets/fondo-orilla-vertical.webp'); background-position: center bottom; }
+
+/* Computadora */
+@media (min-width: 768px) and (orientation: landscape) {
+  .fondo-playa__capa--1 { background-image: url('../../assets/fondo-horizontal.webp'); }
+  .fondo-playa__capa--2 { background-image: url('../../assets/fondo-arena-horizontal.webp'); }
+  .fondo-playa__capa--3 { background-image: url('../../assets/fondo-orilla-horizontal.webp'); }
+}
+
+/* Velo marfil para que el texto se lea */
+.fondo-playa::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(246, 242, 233, 0.2) 0%,
+    rgba(246, 242, 233, 0.45) 50%,
+    rgba(246, 242, 233, 0.6) 100%
+  );
+}
+
+/* Movimiento reducido: el cambio se mantiene, pero más corto */
+@media (prefers-reduced-motion: reduce) {
+  .fondo-playa__capa { transition-duration: 0.4s; }
+}

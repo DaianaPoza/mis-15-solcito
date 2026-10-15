@@ -1,0 +1,169 @@
+/* ===== VARIABLES ===== */
+:root {
+  /* Paleta */
+  --marfil: #F6F2E9;
+  --arena: #DED0BE;
+  --bruma: #BBCAD0;
+  --texto: #465F6A;
+  --champagne: #B6A083;
+  --texto-suave: rgba(70, 95, 106, 0.8);
+  --borde: rgba(182, 160, 131, 0.6);
+
+  /* Tipografías */
+  --fuente-script: 'Great Vibes', cursive;
+  --fuente-titulo: 'Playfair Display', Georgia, serif;
+  --fuente-ui: 'Jost', system-ui, sans-serif;
+
+  /* Medidas */
+  --ancho-contenido: 560px;
+  --espacio-seccion: clamp(3rem, 9vw, 5rem);
+  --radio-pill: 999px;
+  --transicion: 0.3s ease;
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--fuente-titulo);
+  color: var(--texto);
+  background: var(--marfil);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { display: block; max-width: 100%; }
+button, input, select, textarea { font: inherit; color: inherit; }
+a { color: inherit; text-decoration: none; }
+
+/* ===== TIPOGRAFÍA COMPARTIDA ===== */
+.titulo-script {                 /* "Solcito" */
+  font-family: var(--fuente-script);
+  font-weight: 400;
+  font-size: clamp(4.5rem, 20vw, 8rem);
+  line-height: 1;
+}
+
+.subtitulo {                     /* "Mis 15 años" */
+  font-family: var(--fuente-titulo);
+  font-size: clamp(1.6rem, 6vw, 2.2rem);
+  letter-spacing: 0.15em;
+  font-weight: 400;
+}
+
+.titulo-seccion {                /* "Fecha y horario", "El lugar"... */
+  font-family: var(--fuente-titulo);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 6vw, 2rem);
+  line-height: 1.2;
+}
+
+
+
+.titulo-seccion::after {         /* línea champagne bajo el título */
+  content: '';
+  display: block;
+  width: 60%;
+  height: 1px;
+  margin: 0.9rem auto 0;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--champagne) 20%,
+    var(--champagne) 80%,
+    transparent
+  );
+}
+
+.texto {                         /* textos descriptivos */
+  font-family: var(--fuente-titulo);   /* Playfair Display */
+  font-weight: 400;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  line-height: 1.6;
+  color: var(--texto);
+  opacity: 0.85;
+  max-width: 34ch;
+  margin-inline: auto;
+}
+
+
+
+
+
+.etiqueta {                      /* DÍAS · HORAS · MIN · SEG */
+  font-family: var(--fuente-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* ===== ICONOS ===== */
+.icono-seccion {
+  width: 32px;
+  height: 32px;
+  color: var(--champagne);
+  stroke-width: 1.25;
+  margin-inline: auto;
+}
+
+/* ===== BOTONES ===== */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.75rem;
+  font-family: var(--fuente-ui);
+  font-size: 0.95rem;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-pill);
+  background: rgba(246, 242, 233, 0.4);
+  cursor: pointer;
+  transition: background var(--transicion), border-color var(--transicion);
+}
+.boton:hover { background: rgba(246, 242, 233, 0.8); border-color: var(--champagne); }
+
+.boton--relleno {                /* "Confirmar asistencia" */
+  background: var(--champagne);
+  border-color: var(--champagne);
+  color: var(--marfil);
+  width: 100%;
+  justify-content: center;
+}
+.boton--relleno:hover { background: #a08b6f; }
+
+/* ===== CAMPOS DE FORMULARIO ===== */
+.campo {
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  font-family: var(--fuente-ui);
+  font-size: 0.95rem;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-pill);
+  background: rgba(246, 242, 233, 0.5);
+  outline: none;
+  transition: border-color var(--transicion);
+}
+.campo:focus { border-color: var(--champagne); }
+.campo::placeholder { color: var(--texto-suave); }
+
+
+
+
+/* ===== APARICIÓN AL HACER SCROLL (todas las secciones) ===== */
+.aparecer > * { opacity: 0; }
+
+.aparecer--visible > * {
+  animation: aparecer 1s ease forwards;
+}
+.aparecer--visible > *:nth-child(2) { animation-delay: 0.2s; }
+.aparecer--visible > *:nth-child(3) { animation-delay: 0.4s; }
+.aparecer--visible > *:nth-child(4) { animation-delay: 0.6s; }
+.aparecer--visible > *:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aparecer > * { opacity: 1; animation: none !important; }
+}

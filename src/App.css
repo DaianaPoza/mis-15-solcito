@@ -1,0 +1,18 @@
+
+
+/* Contenedor de todas las secciones */
+.contenido {
+  max-width: var(--ancho-contenido);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* Estructura común de cada sección */
+.seccion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-block: var(--espacio-seccion);
+  text-align: center;
+}

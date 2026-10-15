@@ -1,0 +1,23 @@
+/* ===== LUGAR ===== */
+.lugar {
+  gap: 1.25rem;
+}
+
+/* Nombre del lugar en Playfair: se lee bien con siglas y puntos */
+.lugar__nombre {
+  font-family: var(--fuente-titulo);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 8vw, 2.5rem);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  color: var(--texto);
+  margin-top: 0.5rem;
+}
+
+.lugar__direccion {
+  margin-top: -0.5rem;          /* la dirección queda pegadita al nombre */
+}
+
+.lugar .boton {
+  margin-top: 1rem;
+}

@@ -1,0 +1,56 @@
+/* ===== BOTÓN FLOTANTE DE MÚSICA ===== */
+.musica {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 50;                 /* por encima de las secciones, debajo de la portada */
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--borde);
+  background: rgba(246, 242, 233, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: var(--champagne);
+  cursor: pointer;
+  opacity: 0;
+  animation: musica-aparecer 1s ease 1.5s forwards;
+  transition: background var(--transicion), border-color var(--transicion);
+}
+.musica:hover {
+  background: rgba(246, 242, 233, 0.95);
+  border-color: var(--champagne);
+}
+.musica svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1.5;
+}
+
+/* Onda suave alrededor del botón mientras suena */
+.musica--sonando::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  border: 1px solid var(--champagne);
+  animation: musica-onda 2.4s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes musica-aparecer {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes musica-onda {
+  from { opacity: 0.6; transform: scale(1); }
+  to   { opacity: 0;   transform: scale(1.6); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .musica { opacity: 1; animation: none; }
+  .musica--sonando::after { animation: none; opacity: 0; }
+}

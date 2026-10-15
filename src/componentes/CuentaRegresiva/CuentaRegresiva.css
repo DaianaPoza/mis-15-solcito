@@ -1,0 +1,53 @@
+/* ===== CUENTA REGRESIVA ===== */
+.cuenta {
+  gap: 1.5rem;
+}
+
+.cuenta__grilla {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+  width: 100%;
+  max-width: 440px;
+  margin-top: 0.5rem;
+}
+
+/* Cajitas tipo vidrio sobre la playa */
+.cuenta__caja {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 1rem 0.25rem 0.9rem;
+  border: 1px solid rgba(182, 160, 131, 0.35);
+  border-radius: 16px;
+  background: rgba(246, 242, 233, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* Números en manuscrita, como en la referencia */
+.cuenta__numero {
+  font-family: var(--fuente-script);
+  font-size: clamp(2.2rem, 10vw, 2.8rem);
+  line-height: 1;
+  color: var(--texto);
+  font-variant-numeric: tabular-nums; /* evita que salten al cambiar */
+}
+
+.cuenta__etiqueta {
+  font-family: var(--fuente-titulo);
+  font-size: clamp(0.8rem, 3.4vw, 0.95rem);
+  letter-spacing: 0.08em;
+  color: var(--texto);
+  opacity: 0.85;
+}
+
+/* Mensaje cuando llega el día */
+.cuenta__llego {
+  font-family: var(--fuente-script);
+  font-size: clamp(2.4rem, 10vw, 3.2rem);
+  opacity: 1;
+  max-width: none;
+}

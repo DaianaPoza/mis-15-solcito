@@ -1,0 +1,101 @@
+/* ===== REGALO ===== */
+.regalo {
+  gap: 1.25rem;
+}
+
+.regalo__icono {
+  width: 40px;
+  height: 40px;
+  margin-top: 0.5rem;
+}
+
+/* Flechita del botón que gira al abrir */
+.regalo__flecha {
+  transition: transform var(--transicion);
+}
+.regalo__flecha--abierta {
+  transform: rotate(180deg);
+}
+
+/* --- Panel desplegable (se abre suave, sin saltos) --- */
+.regalo__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  width: 100%;
+  max-width: 400px;
+  opacity: 0;
+  transition: grid-template-rows 0.5s ease, opacity 0.5s ease;
+}
+.regalo__panel--abierto {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.regalo__panel-interior {
+  overflow: hidden;
+}
+
+/* Tarjeta tipo vidrio con los datos */
+.regalo__tarjeta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+  padding: 1.5rem 1.25rem;
+  border: 1px solid rgba(182, 160, 131, 0.35);
+  border-radius: 20px;
+  background: rgba(246, 242, 233, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.regalo__fila {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.regalo__fila + .regalo__fila {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(182, 160, 131, 0.3);
+}
+
+.regalo__etiqueta {
+  font-family: var(--fuente-titulo);
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  padding-left: 0.25em;
+  text-transform: uppercase;
+  color: var(--champagne);
+}
+
+.regalo__valor {
+  font-family: var(--fuente-titulo);
+  font-size: clamp(1.05rem, 4.2vw, 1.25rem);
+  color: var(--texto);
+  letter-spacing: 0.04em;
+  word-break: break-all;        /* el CBU es largo: que no se salga */
+  font-variant-numeric: tabular-nums;
+}
+
+/* Botón de copiar, más chico */
+.regalo__copiar {
+  padding: 0.45rem 1.25rem;
+  font-size: 0.85rem;
+}
+.regalo__copiar:disabled {
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
+}
+
+.regalo__titular {
+  font-family: var(--fuente-titulo);
+  font-size: 0.95rem;
+  color: var(--texto);
+  opacity: 0.8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .regalo__panel,
+  .regalo__flecha { transition: none; }
+}

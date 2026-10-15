@@ -1,0 +1,110 @@
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 100svh;          /* ocupa toda la pantalla */
+  justify-content: center;
+  gap: 1.5rem;
+  padding-block: 4rem 8.5rem;
+}
+
+/* --- "Mis 15 años" --- */
+.hero__edad {
+  font-family: var(--fuente-titulo);
+  font-size: clamp(1rem, 4.5vw, 1.3rem);
+  letter-spacing: 0.3em;
+  padding-left: 0.3em;         /* compensa el espacio de la última letra */
+  text-transform: uppercase;
+  color: var(--texto);
+}
+
+/* --- "Solcito" --- */
+.hero__nombre {
+  color: var(--texto);
+  text-shadow: 0 2px 24px rgba(246, 242, 233, 0.9);
+}
+
+/* --- Frase (hereda .texto de index.css) --- */
+.hero__frase {
+  max-width: 24ch;
+  margin-top: 0.5rem;
+}
+
+/* --- Flecha para deslizar --- */
+/* --- Flecha + "Deslizá" --- */
+.hero__deslizar {
+  position: absolute;
+  bottom: 2.75rem;
+  left: 50%;
+  translate: -50% 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--champagne);
+}
+
+/* Círculo tipo vidrio con la flecha */
+.hero__circulo {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(182, 160, 131, 0.6);
+  background: rgba(246, 242, 233, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.hero__circulo svg {
+  width: 30px;
+  height: 30px;
+  stroke-width: 1.75;
+}
+
+/* Texto "Deslizá" */
+.hero__deslizar-texto {
+  font-family: var(--fuente-titulo);
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  padding-left: 0.25em;
+  text-transform: uppercase;
+  color: var(--texto);
+  opacity: 0.8;
+}
+
+/* ===== ANIMACIONES ===== */
+/* Todo empieza oculto y aparece recién cuando se toca "Entrar" */
+.hero > * { opacity: 0; }
+
+.hero--activo .hero__edad,
+.hero--activo .hero__nombre,
+.hero--activo .hero__frase {
+  animation: hero-aparecer 1.2s ease forwards;
+}
+.hero--activo .hero__edad   { animation-delay: 0.5s; }
+.hero--activo .hero__nombre { animation-delay: 0.9s; }
+.hero--activo .hero__frase  { animation-delay: 1.3s; }
+
+.hero--activo .hero__deslizar {
+  animation: hero-aparecer 1s ease 2s forwards;
+}
+/* Solo el círculo flota; el texto queda quieto para leerse bien */
+.hero--activo .hero__circulo {
+  animation: hero-flotar 2.4s ease-in-out 3s infinite;
+}
+
+@keyframes hero-aparecer {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Vaivén suave de la flecha, como una ola */
+@keyframes hero-flotar {
+  0%, 100% { opacity: 1; transform: translateY(0); }
+  50%      { opacity: 0.6; transform: translateY(6px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero > * { opacity: 1; }
+  .hero--activo * { animation: none !important; }
+}

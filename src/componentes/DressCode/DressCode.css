@@ -1,0 +1,47 @@
+/* ===== DRESS CODE ===== */
+.dresscode {
+  gap: 1.25rem;
+}
+
+/* Vestido y saco, uno al lado del otro */
+.dresscode__iconos {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1.75rem;
+  margin-top: 0.5rem;
+}
+.dresscode__icono {
+  width: 52px;
+  height: 52px;
+  color: var(--champagne);
+  stroke-width: 1.1;
+}
+
+/* "Elegante formal": mismo estilo que el nombre del lugar */
+.dresscode__tipo {
+  font-family: var(--fuente-titulo);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 8vw, 2.5rem);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  color: var(--texto);
+}
+
+/* "Vestite para brillar" */
+.dresscode__frase {
+  font-style: italic;
+  margin-top: -0.5rem;
+}
+
+/* Aclaración de colores: más chica y discreta */
+.dresscode__nota {
+  font-family: var(--fuente-titulo);
+  font-size: clamp(0.9rem, 3.6vw, 1rem);
+  color: var(--texto);
+  opacity: 0.75;
+  max-width: 30ch;
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(182, 160, 131, 0.35);
+}
