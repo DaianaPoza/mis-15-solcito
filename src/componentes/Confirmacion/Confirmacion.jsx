@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Minus, Plus } from 'lucide-react'
+import { Bus, MapPin, Minus, Plus } from 'lucide-react'
 import useAparecer from '../../hooks/useAparecer'
 import './Confirmacion.css'
 
@@ -25,6 +25,7 @@ const personaVacia = () => ({
   restricciones: ['ninguna'],
   alergia: '',
   otra: '',
+  cole: 'no', // 'si' | 'no'
 })
 
 export default function Confirmacion() {
@@ -109,6 +110,7 @@ export default function Confirmacion() {
             : '',
         alergia: p.restricciones.includes('alergia') ? p.alergia.trim() : '',
         otra: p.restricciones.includes('otra') ? p.otra.trim() : '',
+        transporte: asistencia === 'si' ? (p.cole === 'si' ? 'Sí' : 'No') : '',
       })),
     }
 
@@ -137,7 +139,7 @@ export default function Confirmacion() {
       <h2 className="titulo-seccion">Confirmá tu asistencia</h2>
 
       <p className="texto">
-        ¡Tu presencia es lo que hace <br /> esta noche especial! 
+        Tu presencia es lo que hace esta noche especial. Avisame si vas a estar.
       </p>
 
       {estado === 'listo' ? (
@@ -203,6 +205,26 @@ export default function Confirmacion() {
             </fieldset>
           )}
 
+          {/* Info del cole (antes de los datos de cada invitado) */}
+          {asistencia === 'si' && (
+            <div className="confirmacion__cole-info">
+              <Bus className="confirmacion__cole-icono" aria-hidden="true" />
+              <p className="confirmacion__cole-titulo">Cole para adolescentes</p>
+              <p className="confirmacion__cole-texto">
+                Si sos adolescente y no tenés cómo llegar, podés usar el cole. Marcalo abajo
+                en tus datos.
+              </p>
+              <div className="confirmacion__cole-horarios">
+                <span><strong>Ida</strong> 20:30 hs</span>
+                <span><strong>Vuelta</strong> 5:30 hs</span>
+              </div>
+              <p className="confirmacion__cole-lugar">
+                <MapPin size={15} strokeWidth={1.5} aria-hidden="true" />
+                Salida y regreso desde el Teatro Municipal
+              </p>
+            </div>
+          )}
+
           {/* Datos de cada persona */}
           {asistencia &&
             (asistencia === 'si' ? personas : personas.slice(0, 1)).map((p, i) => (
@@ -265,6 +287,28 @@ export default function Confirmacion() {
                         onChange={(e) => actualizar(i, 'otra', e.target.value)}
                       />
                     )}
+
+                    <p className="confirmacion__subpregunta">
+                      ¿Usa el cole de ida y vuelta?
+                    </p>
+                    <div className="confirmacion__opciones confirmacion__opciones--chicas">
+                      <button
+                        type="button"
+                        className={`confirmacion__opcion ${p.cole === 'si' ? 'confirmacion__opcion--activa' : ''}`}
+                        onClick={() => actualizar(i, 'cole', 'si')}
+                        aria-pressed={p.cole === 'si'}
+                      >
+                        Sí
+                      </button>
+                      <button
+                        type="button"
+                        className={`confirmacion__opcion ${p.cole === 'no' ? 'confirmacion__opcion--activa' : ''}`}
+                        onClick={() => actualizar(i, 'cole', 'no')}
+                        aria-pressed={p.cole === 'no'}
+                      >
+                        No
+                      </button>
+                    </div>
                   </>
                 )}
               </fieldset>

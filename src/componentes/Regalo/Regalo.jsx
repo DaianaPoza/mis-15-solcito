@@ -6,7 +6,6 @@ import './Regalo.css'
 // ===== DATOS BANCARIOS (completar cuando los tengas) =====
 const DATOS = [
   { etiqueta: 'Alias', valor: 'solcitovm.311' },
-  { etiqueta: 'CBU', valor: '' },
 ]
 const TITULAR = '' // opcional: nombre del titular de la cuenta
 

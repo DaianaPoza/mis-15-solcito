@@ -4,7 +4,7 @@ import './Playlist.css'
 
 // Pegá acá el link de la playlist colaborativa cuando lo tengas.
 // Mientras esté vacío, el botón muestra "Muy pronto" y no se puede tocar.
-const URL_PLAYLIST = ''
+const URL_PLAYLIST = 'https://open.spotify.com/playlist/10cr9vHBfe8srFYA4sCHSh?si=_AQacRBcTSCPLyd9gImrZg&utm_source=copy-link&pt=6ec0b30325ba3ff75a7b34a73bf3a04c&pi=PNFMoQYiSB6zP'
 
 export default function Playlist() {
   const [ref, visible] = useAparecer()

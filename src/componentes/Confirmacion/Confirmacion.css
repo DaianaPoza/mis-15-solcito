@@ -156,6 +156,69 @@
   color: var(--marfil);
 }
 
+/* --- Info del cole --- */
+.confirmacion__cole-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.1rem 1rem;
+  border: 1px dashed rgba(182, 160, 131, 0.6);
+  border-radius: 18px;
+  background: rgba(246, 242, 233, 0.6);
+  text-align: center;
+}
+.confirmacion__cole-icono {
+  width: 28px;
+  height: 28px;
+  color: var(--champagne);
+  stroke-width: 1.25;
+}
+.confirmacion__cole-titulo {
+  font-family: var(--fuente-titulo);
+  font-size: 1.1rem;
+  color: var(--texto);
+}
+.confirmacion__cole-texto {
+  font-family: var(--fuente-titulo);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--texto);
+  opacity: 0.85;
+}
+.confirmacion__cole-horarios {
+  display: flex;
+  gap: 1.25rem;
+  font-family: var(--fuente-titulo);
+  font-size: 1rem;
+  color: var(--texto);
+}
+.confirmacion__cole-horarios strong {
+  font-weight: 400;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--champagne);
+  margin-right: 0.35rem;
+}
+.confirmacion__cole-lugar {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--fuente-titulo);
+  font-style: italic;
+  font-size: 0.88rem;
+  color: var(--texto);
+  opacity: 0.8;
+}
+.confirmacion__cole-lugar svg { color: var(--champagne); flex-shrink: 0; }
+
+/* Sí / No del cole dentro de cada invitado */
+.confirmacion__opciones--chicas .confirmacion__opcion {
+  padding: 0.5rem;
+  font-size: 0.95rem;
+}
+
 .confirmacion__mensaje {
   border-radius: 18px;
   resize: vertical;

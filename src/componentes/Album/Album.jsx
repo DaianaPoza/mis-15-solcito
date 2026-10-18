@@ -2,10 +2,9 @@ import { Camera } from 'lucide-react'
 import useAparecer from '../../hooks/useAparecer'
 import './Album.css'
 
-// Pegá acá el link de la carpeta de Google Drive cuando la tengas.
-// La carpeta tiene que estar compartida como "Cualquier persona con el enlace" → "Editor".
+// Pegá acá el link del álbum compartido de Google Fotos (con "Colaborar" activado).
 // Mientras esté vacío, el botón muestra "Muy pronto" y no se puede tocar.
-const URL_ALBUM = ''
+const URL_ALBUM = 'https://photos.app.goo.gl/j8Az6dMAgr3sVTMQ9'
 
 export default function Album() {
   const [ref, visible] = useAparecer()
@@ -21,10 +20,10 @@ export default function Album() {
 
       <Camera className="icono-seccion album__icono" aria-hidden="true" />
 
-      <p className="album__frase">Cada foto... <br /> guarda un momento</p>
+      <p className="album__frase">Cada foto guarda un momento</p>
 
       <p className="texto">
-        Compartí las tuyas y armemos juntos el álbum de esta noche
+        Compartí las tuyas y armemos juntos el álbum de esta noche.
       </p>
 
       {hayLink ? (
@@ -42,7 +41,7 @@ export default function Album() {
         </span>
       )}
 
-      <p className="album__nota">Tocá el botón y subí tus fotos con el “+”.</p>
+      <p className="album__nota">Tocá el botón, unite al álbum y sumá tus fotos.</p>
     </section>
   )
 }
