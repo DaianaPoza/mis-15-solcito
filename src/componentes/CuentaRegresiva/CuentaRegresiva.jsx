@@ -26,12 +26,12 @@ export default function CuentaRegresiva() {
     return () => clearInterval(intervalo)
   }, [])
 
-  const unidades = [
-    { valor: restante.dias, etiqueta: restante.dias === 1 ? 'Día' : 'Días' },
-    { valor: restante.horas, etiqueta: 'Horas' },
-    { valor: restante.minutos, etiqueta: 'Min' },
-    { valor: restante.segundos, etiqueta: 'Seg' },
-  ]
+ const unidades = [
+  { valor: restante.dias, etiqueta: restante.dias === 1 ? 'Día' : 'Días', destacado: true },
+  { valor: restante.horas, etiqueta: 'Horas' },
+  { valor: restante.minutos, etiqueta: 'Min' },
+  { valor: restante.segundos, etiqueta: 'Seg' },
+]
 
   const llego = restante.total === 0
 
@@ -47,15 +47,19 @@ export default function CuentaRegresiva() {
         <p className="texto cuenta__llego">¡Llegó el gran día!</p>
       ) : (
         <>
-          <p className="texto">Falta muy poquito para celebrar juntos</p>
+          <p className="texto">¡Ya empieza la cuenta! <br />¿Estás listo para festejar?</p>
 
           <div className="cuenta__grilla" role="timer">
-            {unidades.map(({ valor, etiqueta }) => (
-              <div className="cuenta__caja" key={etiqueta}>
-                <span className="cuenta__numero">{valor}</span>
-                <span className="cuenta__etiqueta">{etiqueta}</span>
-              </div>
-            ))}
+
+           {unidades.map(({ valor, etiqueta, destacado }) => (
+  <div
+    className={`cuenta__caja ${destacado ? 'cuenta__caja--destacada' : ''}`}
+    key={etiqueta}
+  >
+    <span className="cuenta__numero">{valor}</span>
+    <span className="cuenta__etiqueta">{etiqueta}</span>
+  </div>
+))}
           </div>
         </>
       )}

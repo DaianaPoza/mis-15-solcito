@@ -12,7 +12,7 @@ import Lugar from './componentes/Lugar/Lugar'
  import Playlist from './componentes/Playlist/Playlist'
 import Regalo from './componentes/Regalo/Regalo'
 import Album from './componentes/Album/Album'
-// import Confirmacion from './componentes/Confirmacion/Confirmacion'
+import Confirmacion from './componentes/Confirmacion/Confirmacion'
 
 export default function App() {
   const [entro, setEntro] = useState(false)
@@ -49,7 +49,7 @@ export default function App() {
         <div data-tramo="3">
            <Regalo /> 
            <Album /> 
-          {/* <Confirmacion /> */}
+           <Confirmacion /> 
         </div>
       </main>
     </>

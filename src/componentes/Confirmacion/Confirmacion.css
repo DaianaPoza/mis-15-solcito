@@ -1,0 +1,204 @@
+/* ===== CONFIRMACIÓN ===== */
+.confirmacion {
+  gap: 1.5rem;
+}
+
+/* Tarjeta tipo vidrio que contiene el formulario */
+.confirmacion__formulario,
+.confirmacion__gracias {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 440px;
+  padding: 1.75rem 1.25rem;
+  border: 1px solid rgba(182, 160, 131, 0.35);
+  border-radius: 24px;
+  background: rgba(246, 242, 233, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  text-align: left;
+}
+
+.confirmacion fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.confirmacion__grupo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.confirmacion__pregunta {
+  font-family: var(--fuente-titulo);
+  font-size: 1.15rem;
+  color: var(--texto);
+  margin-bottom: 0.75rem;
+  width: 100%;
+  text-align: center;
+}
+
+.confirmacion__ayuda {
+  font-family: var(--fuente-titulo);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--texto);
+  opacity: 0.75;
+  margin-top: -0.5rem;
+}
+
+/* --- Sí / No --- */
+.confirmacion__opciones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  width: 100%;
+}
+.confirmacion__opcion {
+  padding: 0.75rem 0.5rem;
+  font-family: var(--fuente-titulo);
+  font-size: 1rem;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-pill);
+  background: rgba(246, 242, 233, 0.5);
+  cursor: pointer;
+  transition: background var(--transicion), color var(--transicion), border-color var(--transicion);
+}
+.confirmacion__opcion--activa {
+  background: var(--champagne);
+  border-color: var(--champagne);
+  color: var(--marfil);
+}
+
+/* --- Contador de invitados --- */
+.confirmacion__contador {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.confirmacion__contador span {
+  font-family: var(--fuente-script);
+  font-size: 2.6rem;
+  line-height: 1;
+  min-width: 2ch;
+  text-align: center;
+  color: var(--texto);
+}
+.confirmacion__contador button {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--borde);
+  background: rgba(246, 242, 233, 0.6);
+  color: var(--champagne);
+  cursor: pointer;
+}
+.confirmacion__contador button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* --- Datos de cada persona --- */
+.confirmacion__persona {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(182, 160, 131, 0.3) !important;
+}
+.confirmacion__persona-titulo {
+  font-family: var(--fuente-script);
+  font-size: 1.9rem;
+  color: var(--texto);
+  margin-bottom: 0.5rem;
+}
+
+.confirmacion__fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.confirmacion__subpregunta {
+  font-family: var(--fuente-titulo);
+  font-size: 0.95rem;
+  color: var(--texto);
+  margin-top: 0.25rem;
+}
+
+/* --- Chips de restricciones --- */
+.confirmacion__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+.confirmacion__chip {
+  padding: 0.4rem 0.9rem;
+  font-family: var(--fuente-ui);
+  font-size: 0.85rem;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-pill);
+  background: rgba(246, 242, 233, 0.5);
+  cursor: pointer;
+  transition: background var(--transicion), color var(--transicion), border-color var(--transicion);
+}
+.confirmacion__chip--activo {
+  background: var(--champagne);
+  border-color: var(--champagne);
+  color: var(--marfil);
+}
+
+.confirmacion__mensaje {
+  border-radius: 18px;
+  resize: vertical;
+}
+
+.confirmacion__error {
+  font-family: var(--fuente-titulo);
+  font-size: 0.95rem;
+  color: #9a4b3c;
+  text-align: center;
+}
+
+.confirmacion .boton--relleno:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* --- Mensaje de agradecimiento --- */
+.confirmacion__gracias {
+  align-items: center;
+  text-align: center;
+}
+.confirmacion__gracias-titulo {
+  font-family: var(--fuente-script);
+  font-size: clamp(2.8rem, 12vw, 3.5rem);
+  line-height: 1;
+  color: var(--texto);
+}
+
+/* --- Fecha límite --- */
+.confirmacion__limite {
+  font-family: var(--fuente-titulo);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--texto);
+  opacity: 0.8;
+}
+.confirmacion__limite strong {
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Celulares muy angostos: nombre y apellido uno debajo del otro */
+@media (max-width: 360px) {
+  .confirmacion__fila { grid-template-columns: 1fr; }
+}

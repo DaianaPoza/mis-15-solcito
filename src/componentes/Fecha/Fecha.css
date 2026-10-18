@@ -1,22 +1,21 @@
 /* ===== FECHA Y HORARIO ===== */
 .fecha {
-  gap: 1.75rem;                 /* aire entre título, fecha y hora */
+  gap: 3rem;                    /* separación entre el bloque Fecha y el bloque Horario */
 }
 
-/* La fecha en manuscrita (Great Vibes), como en la referencia */
-.fecha__dia {
+/* Cada bloque: título arriba, valor abajo */
+.fecha__bloque {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Fecha y hora en manuscrita (Great Vibes), con el mismo estilo */
+.fecha__valor {
   font-family: var(--fuente-script);
   font-size: clamp(2.8rem, 12vw, 3.75rem);
   line-height: 1.1;
   color: var(--texto);
   text-shadow: 0 2px 20px rgba(246, 242, 233, 0.9);
-}
-
-/* La hora en Playfair, más chica */
-.fecha__hora {
-  font-family: var(--fuente-titulo);
-  font-size: clamp(1.8rem, 7vw, 2.4rem);
-  letter-spacing: 0.05em;
-  color: var(--texto);
-  opacity: 0.85;
 }
