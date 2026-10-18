@@ -13,6 +13,7 @@ import Lugar from './componentes/Lugar/Lugar'
 import Regalo from './componentes/Regalo/Regalo'
 import Album from './componentes/Album/Album'
 import Confirmacion from './componentes/Confirmacion/Confirmacion'
+import Footer from './componentes/Footer/Footer'
 
 export default function App() {
   const [entro, setEntro] = useState(false)
@@ -52,6 +53,7 @@ export default function App() {
            <Confirmacion /> 
         </div>
       </main>
+      <Footer/>
     </>
   )
 }

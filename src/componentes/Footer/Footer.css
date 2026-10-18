@@ -1,0 +1,49 @@
+/* ===== FOOTER ===== */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  max-width: var(--ancho-contenido);
+  margin: 4rem auto 0;
+  padding: 5rem 1.5rem 6rem;   /* mucho aire arriba y abajo */
+  text-align: center;
+  border-top: 1px solid rgba(201, 177, 145, 0.35);
+}
+
+.footer__nombre {
+  font-family: var(--fuente-script);
+  font-size: clamp(2.6rem, 11vw, 3.2rem);
+  line-height: 1;
+  color: var(--texto);
+}
+
+.footer__detalle {
+  font-family: var(--fuente-titulo);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  padding-left: 0.2em;
+  text-transform: uppercase;
+  color: var(--champagne-oscuro);
+}
+
+.footer__gracias {
+  font-family: var(--fuente-titulo);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--texto);
+  opacity: 0.8;
+  margin-top: 1.25rem;
+}
+
+.footer__firma {
+  font-family: var(--fuente-titulo);
+  font-size: 0.75rem;
+  color: var(--texto);
+  opacity: 0.55;
+  margin-top: 2.5rem;
+}
+.footer__firma a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

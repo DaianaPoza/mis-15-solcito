@@ -8,6 +8,7 @@
   --champagne: #B6A083;
   --texto-suave: rgba(70, 95, 106, 0.8);
   --borde: rgba(182, 160, 131, 0.6);
+  --champagne-oscuro: #7A6548;   /* para textos chicos: se lee bien sobre la arena */
 
   /* Tipografías */
   --fuente-script: 'Great Vibes', cursive;
